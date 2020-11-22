@@ -1,15 +1,13 @@
 package main;
 
-import java.util.Scanner;
-
 public class Main {
 		
 		public static void main(String[] args) {
-			//se despliega menú para que usuario seleccione patrón
+			//se despliega menÃº para que usuario seleccione patrÃ³n
 			menu();
 		}
 		
-		//MÉTODOS
+		//MÃ‰TODOS
 		static void menu()
 		{
 			patronCuadrado();
@@ -30,12 +28,12 @@ public class Main {
 				//se recorren las columas de la fila i
 				for(j=1;j<=n;j++)
 				{
-					//en el caso que sea la primera o la última fila, se imprimien todos los *
+					//en el caso que sea la primera o la Ãºltima fila, se imprimien todos los *
 					if(i==1 || i==n)
 					{
 						System.out.printf("*");
 					}
-					else if(j==1 || j==n) //consulto si es la primera columna o la última, si es el caso imprimir *
+					else if(j==1 || j==n) //consulto si es la primera columna o la Ãºltima, si es el caso imprimir *
 					{
 						System.out.printf("*");
 					}
@@ -59,7 +57,7 @@ public class Main {
 				//se recorren las columas de la fila i
 				for(j=1;j<=n;j++)
 				{
-					//en el caso que sea la primera o la última fila, se imprimien todos los *
+					//en el caso que sea la primera o la Ãºltima fila, se imprimien todos los *
 					if(i==1 || i==n)
 					{
 						System.out.printf("*");
