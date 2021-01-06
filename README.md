@@ -10,3 +10,4 @@ Desarrollados para el lenguaje Java.
 6. Verifica si el array se encuentra ordenado.
 7. Fibonacci.
 8. Figuras en base a impresión (cuadrado, zeta, equis).
+9. Determina si un número es perfecto (la suma de sus divisores es el mismo número ingresado).
