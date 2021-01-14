@@ -12,3 +12,4 @@ Desarrollados para el lenguaje Java.
 8. Figuras en base a impresión (cuadrado, zeta, equis).
 9. Determina si un número es perfecto (la suma de sus divisores es el mismo número ingresado).
 10. Imprime el valor que más se repite junto con la cantidad de veces que se repite.
+11. Al ingresar una cadena de texto, determina cuantos caracteres iguales hay.
