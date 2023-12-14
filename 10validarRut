@@ -1,0 +1,60 @@
+            function validarRut(rut) {
+                // Verifica que no esté vacío y que el string sea de tamaño mayor a 3 caracteres (1-9)
+                if (!rut || rut.length < 3) {
+                    return { error: true, msj: 'RUT vacío o con menos de 3 caracteres.' };
+                }
+
+                // Quitar los últimos 2 valores (el guión y el dígito verificador) y luego verificar que solo sea numérico
+                var parteNumerica = rut.slice(0, -2);
+                if (!/^[0-9]*$/.test(parteNumerica)) {
+                    return { error: true, msj: 'La parte numérica del RUT sólo debe contener números.' };
+                }
+
+                var guionYVerificador = rut.slice(-2);
+
+                // Verifica que el guión y dígito verificador tengan un largo de 2
+                if (guionYVerificador.length !== 2) {
+                    return { error: true, msj: 'Error en el largo del dígito verificador.' };
+                }
+
+                // Obliga a que el dígito verificador tenga la forma -[0-9] o -[kK]
+                if (!/^[-]{1}[0-9kK]{1}$/.test(guionYVerificador)) {
+                    return { error: true, msj: 'El dígito verificador no cuenta con el patrón requerido' };
+                }
+
+                // Valida que solo sean números, excepto el último dígito que pueda ser k
+                if (!/^[0-9.]+[-]?[0-9kK]{1}$/.test(rut)) {
+                    return { error: true, msj: 'Error al digitar el RUT' };
+                }
+
+                var rutV = rut.replace(/[\.\-]/g, '');
+                var dv = rutV.slice(-1);
+                var numero = rutV.slice(0, -1);
+
+                var i = 2;
+                var suma = 0;
+
+                for (var v of numero.split('').reverse()) {
+                    if (i == 8) {
+                        i = 2;
+                    }
+                    suma += parseInt(v, 10) * i;
+                    ++i;
+                }
+
+                var dvr = 11 - (suma % 11);
+
+                if (dvr === 11) {
+                    dvr = 0;
+                }
+
+                if (dvr === 10) {
+                    dvr = 'K';
+                }
+
+                if (dvr == dv.toUpperCase()) {
+                    return { error: false, msj: 'Rut válido' };
+                } else {
+                    return { error: true, msj: 'Dígito verificador diferente al esperado' };
+                }
+            }
